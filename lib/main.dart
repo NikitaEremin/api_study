@@ -1,6 +1,5 @@
+import 'package:api_study/auth_screen.dart';
 import 'package:api_study/model.dart';
-import 'package:api_study/repository.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple, brightness: Brightness.dark),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Flutter Api'),
@@ -34,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<Todos>? _listTodos;
+  PageController pageController = PageController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +42,39 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: (_listTodos == null)
-            ? const CircularProgressIndicator()
-            : TodosList(todos: _listTodos!),
+      body: PageView(
+        children: [
+          (_listTodos == null)
+                ? const Center(child: CircularProgressIndicator())
+                : TodosList(todoList: _listTodos!),
+          AuthScreen(),
+        ],
+
+
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          _listTodos = await TodoRepository().getTodos();
-          setState(() {});
-        },
-        child: const Icon(Icons.download),
-      ),
+
     );
   }
 }
 
 class TodosList extends StatelessWidget {
-  const TodosList({super.key, required this.todos});
+  const TodosList({super.key, required this.todoList});
 
-  final List<Todos> todos;
+  final List<Todos> todoList;
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemBuilder: (BuildContext context, int index) {
-        return ListTile(
-          title: Text(todos[index].title),
-          subtitle: Text('completed: ${todos[index].completed.toString()}'),
-          leading: Text('id: ${todos[index].id.toString()}'),
-          trailing: Text('userId: ${todos[index].userId.toString()}'),
-        );
-      },
+    return Scaffold(
+      body: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(todoList[index].title),
+            subtitle: Text('completed: ${todoList[index].completed.toString()}'),
+            leading: Text('id: ${todoList[index].id.toString()}'),
+            trailing: Text('userId: ${todoList[index].userId.toString()}'),
+          );
+        },
+      ),
     );
   }
 }
