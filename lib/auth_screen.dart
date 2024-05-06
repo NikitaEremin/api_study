@@ -1,5 +1,5 @@
-import 'package:api_study/repository.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -39,8 +39,9 @@ class _AuthScreenState extends State<AuthScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 32),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
               decoration: const InputDecoration(
@@ -68,10 +69,11 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  ApiV4().auth(
-                      _logincontroller.text,
-                      _passwordcontroller.text,
-                      _idpccontroller.text);
+                  context.go('/cashier_screen');
+                  // ApiV4().auth(
+                  //     _logincontroller.text,
+                  //     _passwordcontroller.text,
+                  //     _idpccontroller.text);
                 },
                 child: const Text('Войти')),
           ],
