@@ -1,7 +1,5 @@
 import 'package:api_study/widgets/pin_pad.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class ReportsScreen extends StatelessWidget {
   const ReportsScreen({super.key});
@@ -16,8 +14,8 @@ class ReportsScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: SizedBox(
-          height: 330,
-          width: 330,
+          height: 300,
+          width: 300,
           child: PinPad(onCompleted: someFunction,),
         ),
       ),

@@ -1,4 +1,4 @@
-import 'package:api_study/router.dart';
+import 'package:api_study/router/router.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const App());
