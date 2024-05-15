@@ -1,11 +1,11 @@
-import 'package:api_study/auth_screen.dart';
-import 'package:api_study/cashbox_screen.dart';
-import 'package:api_study/cashier_screen.dart';
-import 'package:api_study/inventory_screen.dart';
-import 'package:api_study/menu_screen.dart';
-import 'package:api_study/reports_screen.dart';
-import 'package:api_study/settings_screen.dart';
-import 'package:api_study/splash_screen.dart';
+import 'package:api_study/screens/auth_screen.dart';
+import 'package:api_study/screens/cashbox_screen.dart';
+import 'package:api_study/screens/cashier_screen.dart';
+import 'package:api_study/screens/inventory_screen.dart';
+import 'package:api_study/screens/menu_screen.dart';
+import 'package:api_study/screens/reports_screen.dart';
+import 'package:api_study/screens/settings_screen.dart';
+import 'package:api_study/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

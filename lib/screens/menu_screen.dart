@@ -15,7 +15,7 @@ class MenuScreen extends StatelessWidget {
         onDestinationSelected: (int index){
           child.goBranch(index);
         },
-        destinations: [
+        destinations: const [
           NavigationDestination(icon: Icon(Icons.point_of_sale), label: 'Cashier'),
           NavigationDestination(icon: Icon(Icons.inventory), label: 'Invenory'),
           NavigationDestination(icon: Icon(Icons.receipt_long_rounded), label: 'Reports'),
