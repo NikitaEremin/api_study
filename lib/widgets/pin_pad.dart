@@ -104,6 +104,7 @@ class _PinPadState extends State<PinPad> {
               ),
           ],
         ),
+        const SizedBox(height: 32),
         Expanded(
           child: Container(
             padding: const EdgeInsets.symmetric(horizontal: 24),

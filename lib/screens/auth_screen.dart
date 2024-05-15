@@ -1,3 +1,4 @@
+import 'package:api_study/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -69,7 +70,7 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
             ElevatedButton(
                 onPressed: () {
-                  context.go('/cashier_screen');
+                  context.go(AppRoutes.CashierScreen.path);
                   // ApiV4().auth(
                   //     _logincontroller.text,
                   //     _passwordcontroller.text,

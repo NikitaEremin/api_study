@@ -1,3 +1,4 @@
+import 'package:api_study/router.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -10,7 +11,7 @@ class SplashScreen extends StatelessWidget {
       body: Center(
         child: TextButton(
           onPressed: () {
-            context.go('/auth_screen');
+            context.go(AppRoutes.AuthScreen.path);
           },
           child: const Text('Go'),
         ),

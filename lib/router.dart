@@ -9,20 +9,34 @@ import 'package:api_study/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+enum AppRoutes{
+  SplashScreen('/splash_screen'),
+  AuthScreen('/auth_screen'),
+  CashBoxScreen('/cashbox_screen'),
+  CashierScreen('/cashier_screen'),
+  InventoryScreen('/inventory_screen'),
+  ReportsScreen('/reports_screen'),
+  SettingsScreen('/settings_screen');
+
+  final String path;
+  const AppRoutes(this.path);
+
+}
+
 final GoRouter router = GoRouter(
-  initialLocation: '/splash_screen', //TODO в константы
+  initialLocation: AppRoutes.SplashScreen.path,
   routes: <RouteBase>[
     GoRoute(
-      path: '/splash_screen', //TODO в константы
+      path: AppRoutes.SplashScreen.path,
       builder: (BuildContext context, GoRouterState state) =>
           const SplashScreen(),
     ),
     GoRoute(
-      path: '/auth_screen', //TODO в константы
+      path: AppRoutes.AuthScreen.path,
       builder: (BuildContext context, GoRouterState state) =>
           const AuthScreen(),
     ),
-    GoRoute(path: '/cashbox_screen',
+    GoRoute(path: AppRoutes.CashBoxScreen.path,
       builder: (BuildContext context, GoRouterState state) =>
       const CashboxScreen(),
     ),
@@ -34,23 +48,16 @@ final GoRouter router = GoRouter(
         StatefulShellBranch(
           routes: <RouteBase>[
             GoRoute(
-              path: '/cashier_screen', //TODO в константы
+              path: AppRoutes.CashierScreen.path,
               builder: (BuildContext context, GoRouterState state) =>
                   const CashierScreen(),
-              routes: <RouteBase>[
-                // GoRoute(
-                //   path: 'cashbox_screen', //TODO в константы
-                //   builder: (BuildContext context, GoRouterState state) =>
-                //       const CashboxScreen(),
-                // )
-              ],
             )
           ],
         ),
         StatefulShellBranch(
           routes: <RouteBase>[
             GoRoute(
-              path: '/inventory_screen', //TODO в константы
+              path: AppRoutes.InventoryScreen.path,
               builder: (BuildContext context, GoRouterState state) =>
                   const InventoryScreen(),
             )
@@ -60,7 +67,7 @@ final GoRouter router = GoRouter(
           //reports
           routes: <RouteBase>[
             GoRoute(
-              path: '/reports_screen', //TODO в константы
+              path: AppRoutes.ReportsScreen.path,
               builder: (BuildContext context, GoRouterState state) =>
                   const ReportsScreen(),
             )
@@ -70,7 +77,7 @@ final GoRouter router = GoRouter(
           //settings
           routes: <RouteBase>[
             GoRoute(
-              path: '/settings_screen', //TODO в константы
+              path: AppRoutes.SettingsScreen.path,
               builder: (BuildContext context, GoRouterState state) =>
                   const SettingsScreen(),
             )
