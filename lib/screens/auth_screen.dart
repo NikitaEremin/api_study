@@ -1,4 +1,5 @@
 import 'package:api_study/router/router.dart';
+import 'package:api_study/screens/pin_code/set_pin_code_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -35,7 +36,11 @@ class _AuthScreenState extends State<AuthScreen> {
   login 191069649.7@4ek.by
   pass 4444
   */
-
+  void setupPinCode(){
+    showDialog(context: context, builder: (BuildContext context) => SetPinCodeScreen(),);
+  }
+  
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,14 +74,22 @@ class _AuthScreenState extends State<AuthScreen> {
               height: 8.0,
             ),
             ElevatedButton(
-                onPressed: () {
-                  context.go(AppRoutes.CashierScreen.path);
-                  // ApiV4().auth(
-                  //     _logincontroller.text,
-                  //     _passwordcontroller.text,
-                  //     _idpccontroller.text);
-                },
-                child: const Text('Войти')),
+              onPressed: () {
+                context.go(AppRoutes.CashierScreen.path);
+                // ApiV4().auth(
+                //     _logincontroller.text,
+                //     _passwordcontroller.text,
+                //     _idpccontroller.text);
+              },
+              child: const Text('Войти'),
+            ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                setupPinCode();
+              },
+              child: const Text('Установить ПИН-код'),
+            ),
           ],
         ),
       ),

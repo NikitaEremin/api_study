@@ -24,6 +24,17 @@ class TodoRepository{
 }
 
 
+class CurrencyCoursesRepository{
+
+  final dio = Dio();
+
+  Future<void> getCurrencies() async {
+    final response = await dio.get('https://api.nbrb.by/exrates/currencies');
+    print(response.data);
+  }
+}
+
+
 
 class ApiV4{
 
